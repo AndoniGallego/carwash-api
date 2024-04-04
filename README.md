@@ -42,6 +42,19 @@ $ JWT_SECRET=asdaksjdswajdklJeLKASJDALKSDJlsdawd45
 $ npm install
 ```
 
+## Configuration BD (without docker)
+
+Remember configurate the app.module.ts for connect with the BD. It's necessary configurate the correct port and host in the app.module.ts
+
+```bash
+$ type: 'mysql',
+$ host: 'localhost',
+$ port: 3307,
+$ username: 'carwashbd',
+$ password: 'carwashbd',
+$ database: 'carwash',
+```
+
 ## Running the app (without docker)
 
 ```bash
