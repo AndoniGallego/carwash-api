@@ -13,3 +13,5 @@ services:
       - ./mysql:/var/lib/mysql
     ports:
       - "3307:3306"
+
+# docker compose up -d para levantar la BD.

@@ -32,6 +32,12 @@
 $ npm install
 ```
 
+## Create and run the BD with Docker
+
+```bash
+$ docker compose up -d
+```
+
 ## Running the app
 
 ```bash
