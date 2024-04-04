@@ -20,5 +20,7 @@ async function bootstrap() {
 
 
   await app.listen(process.env.APP_PORT || 3000);
+
+  console.log(`API REST carwash is running on port ${process.env.APP_PORT || 3000}`);
 }
 bootstrap();

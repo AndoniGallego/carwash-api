@@ -9,13 +9,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
     UserModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3307,
+      host: 'bd',
+      port: 3306,
       username: 'carwashbd',
       password: 'carwashbd',
       database: 'carwash',
       autoLoadEntities: true,
-      synchronize: true
+      synchronize: false
     })
   ],
   controllers: [],

@@ -26,19 +26,23 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Setup .env
+
+Create .env file and copy this keys
+
+```bash
+$ APP_NAME=CarWash
+$ APP_PORT=4001
+$ JWT_SECRET=asdaksjdswajdklJeLKASJDALKSDJlsdawd45
+```
+
+## Installation (without docker)
 
 ```bash
 $ npm install
 ```
 
-## Create and run the BD with Docker
-
-```bash
-$ docker compose up -d
-```
-
-## Running the app
+## Running the app (without docker)
 
 ```bash
 # development
