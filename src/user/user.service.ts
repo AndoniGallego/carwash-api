@@ -11,28 +11,28 @@ import { ExceptionCodeEnum } from 'src/exceptions/exception-code-enum';
 export class UserService {
 
   constructor(
-    @InjectRepository(User) private readonly userRepository: Repository<User>,
+    @InjectRepository(User) private readonly userRepository: Repository<any>,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
+  async create(createUserDto: any) {
 
-    let verifyUser = await this.userRepository.findOne({
+    let vu = await this.userRepository.findOne({
       where: {
         phone: createUserDto.phone,
         patent: createUserDto.patent,
         deleted: false
       }
-    });
+    })
 
-    if (verifyUser) {
-      throw new BusinessLogicException(ExceptionCodeEnum.USER_PHONE_OR_PATENT_ALREADY_EXISTS);
+    if (vu) {
+      throw new BusinessLogicException(ExceptionCodeEnum.USER_PHONE_OR_PATENT_ALREADY_EXISTS)
     }
 
-    let user = this.userRepository.create(createUserDto);
+    let u = this.userRepository.create(createUserDto);
 
-    user.password = await user.hashPassword(createUserDto.password);
+    u.password = await u.hashPassword(createUserDto.password);
 
-    return await this.userRepository.save(user);
+    return await this.userRepository.save(u);
   }
 
   async findAll(page: number = 1, limit: number = 10) {

@@ -5,25 +5,25 @@ import * as bcrypt from 'bcrypt';
 export class User {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id: any;
 
     @Column()
-    name: string;
+    name: any;
 
     @DeleteDateColumn()
     deletedAt: Date;
 
-    @Column( { default: false } )
-    deleted: boolean;
+    @Column()
+    deleted: any;
 
     @Column()
-    password: string;
+    password: any;
 
     @Column()
     role: string;
 
     @Column( { nullable: false, unique: true } )
-    phone: number;
+    phone: any;
 
     @Column( { nullable: false, unique: true } )
     patent: string;

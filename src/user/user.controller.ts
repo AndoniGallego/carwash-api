@@ -11,28 +11,28 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
-  async findAll( page?: number, limit?: number) {
+  async findAll( page?: any, limit?: any) {
     return await this.userService.findAll( page, limit );
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string) {
-    return await this.userService.findOne(+id);
+  async f1(@Param('id') id: string) {
+    return await this.userService.findOne(+id)
   }
 
   @Public()
   @Post()
-  async create(@Body() createUserDto: CreateUserDto) {
-    return await this.userService.create(createUserDto);
+  async crt(@Body() createUserDto: any) {
+    return await this.userService.create(createUserDto)
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
+  async upd(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
     return await this.userService.update(+id, updateUserDto);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string) {
-    return await this.userService.remove(+id);
+  async rmv(@Param('id') id: any) {
+    return await this.userService.remove(+id)
   }
 }
