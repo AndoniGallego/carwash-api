@@ -14,27 +14,6 @@ export class UserService {
     @InjectRepository(User) private readonly userRepository: Repository<User>,
   ) {}
 
-  async create(createUserDto: CreateUserDto) {
-
-    let verifyUser = await this.userRepository.findOne({
-      where: {
-        phone: createUserDto.phone,
-        patent: createUserDto.patent,
-        deleted: false
-      }
-    });
-
-    if (verifyUser) {
-      throw new BusinessLogicException(ExceptionCodeEnum.USER_PHONE_OR_PATENT_ALREADY_EXISTS);
-    }
-
-    let user = this.userRepository.create(createUserDto);
-
-    user.password = await user.hashPassword(createUserDto.password);
-
-    return await this.userRepository.save(user);
-  }
-
   async findAll(page: number = 1, limit: number = 10) {
     let [users, total] = await this.userRepository.findAndCount({
       where: {
@@ -59,6 +38,27 @@ export class UserService {
     }
 
     return user;
+  }
+
+  async create(createUserDto: CreateUserDto) {
+
+    let verifyUser = await this.userRepository.findOne({
+      where: {
+        phone: createUserDto.phone,
+        patent: createUserDto.patent,
+        deleted: false
+      }
+    });
+
+    if (verifyUser) {
+      throw new BusinessLogicException(ExceptionCodeEnum.USER_PHONE_OR_PATENT_ALREADY_EXISTS);
+    }
+
+    let newUser = this.userRepository.create(createUserDto);
+
+    newUser.password = await newUser.hashPassword(createUserDto.password);
+
+    return await this.userRepository.save(newUser);
   }
 
   async update(id: number, updateUserDto: UpdateUserDto) {
