@@ -1,5 +1,6 @@
-import { Column, DeleteDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, DeleteDateColumn, Entity, JoinColumn, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import * as bcrypt from 'bcrypt';
+import { Wash } from 'src/wash/entities/wash.entity';
 
 @Entity( { name: 'users' } )
 export class User {
@@ -27,6 +28,10 @@ export class User {
 
     @Column( { nullable: false, unique: true } )
     patent: string;
+
+    @OneToMany(() => Wash, wash => wash.user)
+    @JoinColumn({ name: 'id' })
+    washeds: Wash[];
 
     async hashPassword( password: string ) {
         return await bcrypt.hashSync( password, 10 );
