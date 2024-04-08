@@ -4,7 +4,9 @@ export enum ExceptionCodeEnum {
     USER_PHONE_OR_PATENT_ALREADY_EXISTS = "USER_PHONE_OR_PATENT_ALREADY_EXISTS",
     USER_PHONE_IS_REQUIRED = "USER_PHONE_IS_REQUIRED",
     USER_PASSWORD_IS_REQUIRED = "USER_PASSWORD_IS_REQUIRED",
-    PHONE_OR_PASSWORD_INCORRECT = "PHONE_OR_PASSWORD_INCORRECT"
+    PHONE_OR_PASSWORD_INCORRECT = "PHONE_OR_PASSWORD_INCORRECT",
+    WASH_ALREADY_EXIST = "WASH_ALREADY_EXIST",
+    WASH_NOT_FOUND = "WASH_NOT_FOUND",
 }
 
 export const ExceptionCodeDescription = new Map<string, string>([
@@ -13,5 +15,7 @@ export const ExceptionCodeDescription = new Map<string, string>([
     [ExceptionCodeEnum.USER_PHONE_OR_PATENT_ALREADY_EXISTS, 'User phone or patent already exists'],
     [ExceptionCodeEnum.USER_PHONE_IS_REQUIRED, 'User phone is required'],
     [ExceptionCodeEnum.USER_PASSWORD_IS_REQUIRED, 'User password is required'],
-    [ExceptionCodeEnum.PHONE_OR_PASSWORD_INCORRECT, 'Phone or password incorrect']
+    [ExceptionCodeEnum.PHONE_OR_PASSWORD_INCORRECT, 'Phone or password incorrect'],
+    [ExceptionCodeEnum.WASH_ALREADY_EXIST, 'Wash already exist'],
+    [ExceptionCodeEnum.WASH_NOT_FOUND, 'Wash not found'],
 ]);
