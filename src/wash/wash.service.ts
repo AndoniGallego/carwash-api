@@ -46,7 +46,7 @@ export class WashService {
 
     let verifywash = await this.washRepository.findOne({
       where: {
-        'user': { id: createWash.userId },
+        user: { id: createWash.userId },
         deleted: false
       }
     });
